@@ -44,11 +44,9 @@ SOURCES :=	main.c \
 
 OBJECTS := $(patsubst %.c,%.o,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 
-INCLUDES := -I./include/ -I./libft/include/
+PATH_LIB := ./libft/
 
-PATH_LIB = ./libft/
-
-LIB = $(PATH_LIB)libft.a
+INCLUDES := -I./include/ -I$(PATH_LIB)include/
 
 DEPENDS := $(patsubst %.c,%.d,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 
@@ -58,5 +56,17 @@ TESTS_PATH := ./tools/tests/
 
 TESTS_SCRIPT := launch_test.sh "launch from makefile"
 
-#CFLAGS += -fno-builtin -O2
-CFLAGS += -fsanitize=address
+TEST := $(SH) $(TESTS_PATH)$(TESTS_SCRIPT)
+
+LDLIBS += $(PATH_LIB)libft.a
+
+LDFLAGS +=
+
+CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
+ifneq ($(shell uname -s),Darwin)
+	CFLAGS += -ansi
+endif
+
+CFLAGS += -g -fsanitize=address
+#CFLAGS += -fno-builtin -O2 -ftlo=full
+
