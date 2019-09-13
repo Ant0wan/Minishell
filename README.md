@@ -49,17 +49,17 @@ Minishell is organized in modules.
 
 Main modules are:
 
-- `Input`, it handles input and display prompt.
+- `Input` handles input and display prompt.
 
-- `Lex`, it performs lexical analysis and is composed of two submodules: `Expansions` and `Separators`.
+- `Lex` performs lexical analysis and is composed of two submodules: `Expansions` and `Separators`.
 
-- `Synt`, it performs a syntactic analysis.
+- `Synt` performs a syntactic analysis.
 
-- `Jcont`, it performs the ordering and execution of jobs.
+- `Jcont` arranges and execution of jobs.
 
-- `Job`, it executes jobs i.e. commands. It has a submodule `Builtins`.
+- `Job` executes jobs i.e. commands. It has a submodule `Builtins`.
 
-- `Transv`, it is a transverse module giving access to two submodules: `Signals` and `Error`.
+- `Transv` is a transverse module giving access to two submodules: `Signals` and `Error`.
 
 #### Workflow
 
