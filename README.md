@@ -5,33 +5,16 @@ An implementation of some a simple start of a **shellscript** [a 42 project].
 
 This project aims to get familiar with some of the core of the Unix system and explore an important part of the system’s API: process creation and synchronisation.
 
-It implies to code in the cleanest and simplest manner
-
-
 ## Description
 
-```
-./include:
-builtins.h error.h    input.h    job.h      lexer.h    path.h     prompt.h
 
-./src:
-error.c input   job     lexer   main.c
+## General Architecture
 
-./src/input:
-input.c  path.c   prompt.c
+Minishell is organized in modules.
 
-./src/job:
-README.md             builtins.c            builtins_dispatcher.c job.c
+## Workflow
 
-./src/lexer:
-lexer.c
-```
-
-## Architecture
-
-Organized in modules.
-
-The following is the main steps in the minishell workflow:
+The following is the main steps of the minishell workflow:
 
 - Input Stream
 
@@ -39,46 +22,43 @@ The following is the main steps in the minishell workflow:
 
 - Parsing
 
-- Dispatcher
+- Job control
 
-- Dispatcher
+- Job execution
 
-## General Architecture
+After the input stream has been capture by the `Input module`, a raw string is passed to the `Lexer module` for lexical analysis. Then the tokenization process takes place.
 
-```
-hello
-```
+Once the tokens created and subsitution of expansions done, the lexer send a table of pointer - containing the tokens - to the `Syntactic Module` for parsing. The parsing only checks unfitting/unrecognized tokens.
 
+Once the syntactic analysis done the parser send the validated table of pointers to the `Job Control Module`. The job control then create sequences that are being executed by the `Job Module` in sequence.
 
-## Lexical Analysis
+Input sample : `ls -l -- file repo ; echo $? ; env -i ls ; coco ";s;s'"`
 
-After the input stream has been capture. A raw string is passed to `function` for a lexical analysis. A process of tokenization takes place.
+Fom the sample input, the first sequence executed by job would be `ls -l -- file repo`, the second sequence `echo $?` the third sequence `env -i ls`, then the last sequences `coco`, `s`, `s'"``
 
-> Each token is stored in a node of a linked-list.
-> Each token will be executed in a fork or as a builtin after been dispatched.
+Unfortunately Minishell input does not recognized parenthethis nor brackets nor quotes as bash does.
 
-input sample : ls -l -- file repo ; echo $? ; env -i ls ; coco ";s;s'"
+Illustration of the above-explained workflow:
 
-Linked-list containing the tokens :
-```
-		 ---------------------------------
-		|		Command 1
-		| bin:
-		|
-		|
-		|
-		 ---------------------------------
-
-
-
-
-```
-
-And this will produce a flow chart:
+![Modules Flowchart](./tools/flowcharts/modules_flowchart.jpg)
 
 ## Usage
 
+- Clone project repository
+
 ```shell=
 git clone --recurse-submodules https://github.com/Ant0wan/Minishell.git
+```
+
+- Build project
+
+```shell=
+cd Minishell && make -j
+```
+
+- Run `minishell`
+
+```shell=
+./minishell
 ```
 
