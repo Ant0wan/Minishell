@@ -7,6 +7,23 @@ This project aims to get familiar with some of the core of the Unix system and e
 
 ## Description
 
+Minishell is a mini UNIX command interpreter. Its prompt displays the current repository and wait a command line ending with the `return` key pressed from keyboard. The prompt is shown again only once the command has been completely executed.
+
+The command lines are simple, no pipes, no redirections or any other advanced functions. However multiple commands can be entered using the `;` character to separate commands. If `builtin` keyword or if the command line is not a minishell builtin, the input is executed with the binaries found with PATH environment variable.
+
+In cases the binary cannot be found, minishell returns an error message and display its prompt again.
+
+Errno was forbidden by the project. Therefore, a specific module `Error` has been coded.
+
+Environment variables are retreived using `char **environ` given by `unistd.h`.
+
+Minishell has the following builtins: `exit` (POSIX compliant), `echo` (POSIX compliant), `cd` (POSIX compliant), `env` (POSIX compliant), `pwd` (POSIX compliant), `setenv` (tcsh version) and `unsetenv` (tcsh version).
+    
+Bash was the shell reference during the project, thereby minishell behavior refers to bash one.
+
+The following expansions are supported and substituted at lexing time: `$`, `$?`, `${}`, `~`, `~+` and `~-`.
+
+Minishell has been coded refering to the POSIX standard (IEEE Std 1003.1-2017 (Revision of IEEE Std 1003.1-2008)), however it does not fully comply to the standard.
 
 #### General Architecture
 
