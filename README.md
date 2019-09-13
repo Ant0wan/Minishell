@@ -12,6 +12,11 @@ This project aims to get familiar with some of the core of the Unix system and e
 
 Minishell is organized in modules.
 
+Module "job" handles the execution of commands.
+Thereby, it checks if access to the cmd is possible, access(), builtins and then fork it or return an error msg.
+On call of the module execute one command with its options.
+to call the module -> job(char** argv, char **envip), it returns the return value of the execute command. In case command is not found it returns the value defined by the enum. e.g "command not found = 127"
+
 ## Workflow
 
 The following is the main steps of the minishell workflow:
