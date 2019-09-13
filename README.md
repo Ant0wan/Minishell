@@ -25,6 +25,24 @@ The following expansions are supported and substituted at lexing time: `$`, `$?`
 
 Minishell has been coded refering to the POSIX standard (IEEE Std 1003.1-2017 (Revision of IEEE Std 1003.1-2008)), however it does not fully comply to the standard.
 
+Minishell uses the following functions:
+```shell=
+access
+chdir
+execve
+exit
+fork
+free
+getcwd
+kill
+localeconv
+malloc
+perror
+read
+waitpid
+write
+```
+
 #### General Architecture
 
 Minishell is organized in modules.
