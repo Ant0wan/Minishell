@@ -1,7 +1,7 @@
 # Minishell [![42](https://i.imgur.com/9NXfcit.jpg)](i.imgur.com/9NXfcit.jpg)
 [![Build Status](https://travis-ci.com/Ant0wan/Minishell.svg?branch=master)](https://travis-ci.com/Ant0wan/Minishell)
 
-An implementation of some a simple start of a **shellscript** [a 42 project].
+An implementation of a very tiny **shellscript** [a 42 project].
 
 This project aims to get familiar with some of the core of the Unix system and explore an important part of the system’s API: process creation and synchronisation.
 
