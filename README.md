@@ -2,7 +2,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6e4492a2c41645b7bf9cafd58e635ce6)](https://www.codacy.com/manual/Ant0wan/Minishell?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Ant0wan/Minishell&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.com/Ant0wan/Minishell.svg?branch=master)](https://travis-ci.com/Ant0wan/Minishell)
 
-An implementation of a very tiny **shellscript** [a 42 project].
+An implementation of a very tiny **shell** [a 42 project].
 
 This project aims to get familiar with some of the core of the Unix system and explore an important part of the system’s API: process creation and synchronisation.
 
