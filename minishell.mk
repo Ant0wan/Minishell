@@ -60,9 +60,9 @@ TEST := $(SH) $(TESTS_PATH)$(TESTS_SCRIPT)
 
 LDLIBS += $(PATH_LIB)libft.a
 
-LDFLAGS += -flto=full
+LDFLAGS +=
 
-CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
+CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE -ansi
 
 CFLAGS += -fno-builtin -O2
 #CFLAGS += -g -fsanitize=address
