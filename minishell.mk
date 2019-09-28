@@ -63,9 +63,6 @@ LDLIBS += $(PATH_LIB)libft.a
 LDFLAGS += -flto=full
 
 CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
-ifneq ($(CXX), clang)
-	CFLAGS += -ansi
-endif
 
 CFLAGS += -fno-builtin -O2
 #CFLAGS += -g -fsanitize=address
