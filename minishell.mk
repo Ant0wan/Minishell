@@ -63,7 +63,7 @@ LDLIBS += $(PATH_LIB)libft.a
 LDFLAGS += -flto=full
 
 CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
-ifneq ($(shell uname -s),Darwin)
+ifneq ($(CXX), clang)
 	CFLAGS += -ansi
 endif
 
